@@ -1,11 +1,6 @@
-# Use the official Nginx image as a base
-FROM nginx:alpine
+FROM php:8.2-apache
 
-# Copy your HTML file to the default Nginx public directory
-COPY index.php /usr/share/nginx/html/index.php
+# Copy your PHP page into Apache’s default web root
+COPY index.php /var/www/html/
 
-# Expose port 80 (the default HTTP port)
 EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
